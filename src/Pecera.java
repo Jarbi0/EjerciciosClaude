@@ -20,15 +20,19 @@ public class Pecera {
 		if (temperatura>28) {
 			System.out.println("Vigile la temperatura");
 		}
+		
 	
 		System.out.println("La pecera " + nombre + " tiene " +
 		capacidad + " litros de capacidad, esta a " + temperatura +
-		" grados. Luz: " + luzEncendida + ". La llenamos al 80%: " + 
+		" grados. \nLuz: " + luzEncendida + ". La llenamos al 80%: " + 
 		capacidad80 + " litros.");
 		
 		
 		String [] arrayPeces = { "Nemo","Dory", "Bubbles","Gill","Peach"};
 		int[]  arrayTamanios = {8,20,3,15,6};
+		
+		
+		System.out.println("");
 		
 		
 		System.out.println("--- Peces grandes ---");
@@ -39,8 +43,11 @@ public class Pecera {
 				System.out.println("El pez "+arrayPeces[i]+ " mide " + arrayTamanios[i]+ "cm.");
 			}
 		}
+		
 		System.out.println("");
 			
+		
+		
 		System.out.println("--- Clasificacion ---");
 		for(int i=0;i<arrayPeces.length; i++) {
 			
@@ -82,26 +89,39 @@ public class Pecera {
 		System.out.println("Peces medianos: " + contMedis);
 		System.out.println("Peces grandes: " + contGrands);
 		
+		System.out.println("");
 		
-		
-		}
-		
+		Pecera3.mostrarEstado(nombre, temperatura, arrayPeces.length);
 	
+		}
+	
+}
+	
+
+
+	class Pecera3{
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	static int cantidadComida = 0;
+	static int numPeces;
+	
+	static boolean esSaludable(double temp) {
+		return temp>=22 && temp<=27;	
 	}
+	
+	static int calcularAlimento(int numPeces) {
+		return numPeces*2;
+		}	
+	
+	static void mostrarEstado(String nombre, double temp, int numPeces) {
+		System.out.println("=== Estado del acuario ===");
+		System.out.println("Nombre: " + nombre);
+		System.out.println("Temperatura: " + temp + "grados - "+ (esSaludable(temp) ? "saludable :)": "revisar !"));
+		System.out.println("Num de peces: " + numPeces);
+		System.out.println("Alimento/dia: " + calcularAlimento(numPeces) + "g");
+	}
+	
+	
+	}
+
 
 
