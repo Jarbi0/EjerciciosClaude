@@ -17,7 +17,7 @@ public class GetSet {
 			return nombre;
 		}
 		public void setNombre(String nombre) {
-			if (nombre!=null && nombre!="") {
+			if (nombre!=null && !nombre.isEmpty()) { // devuelve true si lengrh no es 0
 				this.nombre = nombre;
 			}else this.nombre="Nombre incorrecto";
 		}
