@@ -17,7 +17,9 @@ public class BibliotecaEjercicio {
 			return nombre;
 		}
 		public void setNombre(String nombre) {
-			this.nombre= nombre;
+			if(nombre!=null && !nombre.isEmpty()) {
+				this.nombre= nombre;
+			}else System.out.println("Npombre incorrecto");
 		}
 		
 		
