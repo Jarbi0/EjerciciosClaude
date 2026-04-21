@@ -7,10 +7,16 @@ public class BibliotecaEjercicio {
 		private ArrayList<String> libros;
 		private ArrayList<String> autores;
 		
-		public String getNombre(String nombre) {
+		Biblioteca(String nombre){
+			setNombre(nombre);
+			this.libros= new ArrayList<>();
+			this.autores= new ArrayList<>();
+		}
+		
+		public String getNombre() {
 			return nombre;
 		}
-		public void setNombre() {
+		public void setNombre(String nombre) {
 			this.nombre= nombre;
 		}
 		
@@ -19,7 +25,7 @@ public class BibliotecaEjercicio {
 			if (libro!=null && !libro.isEmpty() && autor!=null && !autor.isEmpty()) {
 				this.libros.addLast(libro);
 				this.autores.addLast(autor);
-				System.out.println("Hemos añadido el libro y  su autor.");
+				System.out.println("Hemos añadido el libro: " + libro +" y su autor: "+ autor);
 			} else System.out.println("Libro o autor incorrectos");
 		}
 		
@@ -29,7 +35,7 @@ public class BibliotecaEjercicio {
 			if (indice!=-1) {
 				libros.remove(indice);
 				autores.remove(indice);
-				System.out.println("Libro y autor eliminados.");
+				System.out.println("Libro: " + libro + " y su autor eliminados.");
 			} else System.out.println("Ese libro no se encuentra en nuestros archivos");
 			}
 		
@@ -43,6 +49,7 @@ public class BibliotecaEjercicio {
 		
 		
 		public void mostrarLibros() {
+			System.out.println("Los libros de " + nombre + " son:");
 			for (int i=0;i<libros.size();i++) {
 				System.out.println("Libro: " + libros.get(i) + " pertenece al autor: " + autores.get(i));
 				}
@@ -56,6 +63,29 @@ public class BibliotecaEjercicio {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		 
+		Biblioteca biblio=new Biblioteca("La lectura"); 
+
+		biblio.añadirLibro("libro1", "autor1");
+		biblio.añadirLibro("libro2", "autor2");
+		biblio.añadirLibro("libro3", "autor3");
+		
+		System.out.println("");
+		
+		
+		biblio.mostrarLibros();
+		
+		System.out.println("");
+		
+		biblio.buscarAutor("libro2");
+		
+		System.out.println("");
+		
+		biblio.eliminarLibro("libro1");
+		
+		System.out.println("");
+		
+		biblio.mostrarLibros();
+		
 		
 	}
 
